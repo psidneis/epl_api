@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Job, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '#activate' do
+    subject { create(:job) }
+
+    it "should return a job activate" do
+      subject.activate
+      expect(subject.activated?).to eq(true)
+    end
+  end
+
 end

@@ -1,7 +1,9 @@
 class Job < ApplicationRecord
 
-  def activate
-    
-  end
+  enum status: [ :draft, :activated ]
   
+  def activate(params=nil)
+    self.activated!
+  end
+
 end

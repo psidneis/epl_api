@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :job do
-    partner_id 1
-    title "MyString"
-    category_id 1
-    expires_at "2017-03-11 11:06:13"
+    sequence(:partner_id)
+    sequence(:title){ |n| "My Job #{n}" }
+    sequence(:category_id)
+    expires_at Time.now + 2.days
+    status 0
   end
 end

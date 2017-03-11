@@ -14,6 +14,10 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+
+require 'rubygems'
+require 'factory_girl'
+require 'database_cleaner'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -96,4 +100,9 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+config.after(:suite) do
+  DatabaseCleaner.clean_with(:truncation)
+end
+
+config.include FactoryGirl::Syntax::Methods
 end
