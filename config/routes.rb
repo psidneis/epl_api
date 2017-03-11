@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
-  resources :jobs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  scope module: 'api' do
+    namespace :v1 do
+      resources :jobs, only: [:index, :create] do
+      	patch :activate
+      end
+      get 'category/:id', to: 'categories#percentege'
+    end
+  end
+
 end
