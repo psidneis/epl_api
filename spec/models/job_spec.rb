@@ -5,7 +5,7 @@ RSpec.describe Job, type: :model do
   describe '#activate' do
     subject { create(:job) }
 
-    it "should return a job activate" do
+    it "should return a job activated" do
       subject.activate
       expect(subject.activated?).to eq(true)
     end
